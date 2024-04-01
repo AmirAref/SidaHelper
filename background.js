@@ -1,4 +1,4 @@
-const sida = 'https://sida.medu.ir'
+const sida = 'https://sida.medu.ir/#/scoreClassTeacher'
 
 chrome.action.onClicked.addListener(
     async (tab) => {
@@ -9,9 +9,8 @@ chrome.action.onClicked.addListener(
             chrome.scripting.executeScript({
                 target: { tabId: tab.id, allFrames: true },
                 files: ['scripts/script.js'],
-            }).then(
-                () => console.log("Script Injected!")
-            );
+            });
+            console.log("Script Injected!");
 
 
         }
