@@ -17,12 +17,5 @@
       },
       "description": "run sida helper script"
     }
-  },
-  "content_scripts": [
-    {
-      "run_at": "document_end",
-      "matches": ["*://sida.medu.ir/*"],
-      "js": ["scripts/script.js"]
-    }
-  ]
+  }
 }
