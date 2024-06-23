@@ -1,16 +1,91 @@
 <!doctype html>
-<html>
-  <body style="max-width:300px;">
-    <h1>Welcome to Sida Helper extension</h1>
-		<p>go to the score list table in sida.medu.ir, when the <b>table</b> of students loaded, click the <b>Run Helper</b> button below, the helper will be excuted and the total sum of scores will be fill automatically.
-			<br>
-		</span><b>Note:</b> when you want to submit and save the scores, just re-write the total scores number yourself in the same input.</span>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Sida Helper Popup</title>
+    <style>
+          body{
+           padding: 4px 8px;
+      background-color: #f9f9f9;
+      max-width:330px;>
+          	}
+              h1 {
+               font-size: 20px;
+               color: #333;
+               text-align: center;
+               margin-bottom: 20px;
+             }
 
-		</p>
-    <button id="helper-click">Run Helper</button>
-		<a href="https://my.medu.ir" taget="_blank"><button class="button">My medu</button></a>
-		<a href="https://sida.medu.ir" taget="_blank"><button class="button" >Sida.medu.ir</button></a>
-		<p>Created By : <a href="https://amiraref.ir", target="_blank">Amir Aref</a></p>
+            .text-body {
+               font-size: 15px;
+               color: #555;
+               margin-bottom: 20px;
+             }
+          #helper-click{
+          background-color:#379777;
+          }
+           .button {
+               margin: 5px 0 2px 0;
+               padding: 10px;
+               background-color: #007bff;
+               color: white;
+               text-align: center;
+               border: none;
+               border-radius: 5px;
+               cursor: pointer;
+               transition: background-color 0.3s, transform 0.3s;
+             }
+             .button:hover {
+               background-color: #0056b3;
+               transform: scale(1.05);
+             }
+             .button:active {
+               background-color: #003f7f;
+               transform: scale(0.98);
+             }
+
+           .creator-link {
+               font-size: 14px;
+               margin-top: 20px;
+               text-align: center;
+             }
+             .creator-link a {
+               color: #007bff;
+               text-decoration: none;
+             }
+             .creator-link a:hover {
+               text-decoration: underline;
+             }
+    </style>
+  </head>
+  <body>
+    <h1>Sida Helper</h1>
+    <div class="text-body">
+      <p>Hi, Welcome to the Sida Helper extension.</p>
+      <p>
+        to use the helper, go to the score list table in sida.medu.ir, when the
+        <b>table</b> of students loaded, click the <b>Run Helper</b> button
+        below, the helper will be excuted and the total sum of scores will be
+        fill automatically.
+      </p>
+      <span
+        ><b>Note:</b> when you want to submit and save the scores, just re-write
+        the total scores number yourself in the same input.</span
+      >
+    </div>
+    <button id="helper-click" class="button">Run Helper</button>
+    <a href="https://my.medu.ir" taget="_blank"
+      ><button class="button link">My medu</button></a
+    >
+    <a href="https://sida.medu.ir" taget="_blank"
+      ><button class="button link">Sida.medu.ir</button></a
+    >
+
+    <div class="creator-link">
+      Created By :
+      <a href="https://amiraref.ir" , target="_blank">Amir Aref</a>
+    </div>
+
     <script src="popup.js"></script>
   </body>
 </html>
