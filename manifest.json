@@ -8,6 +8,7 @@
     "default_title": "Sida Helper",
     "default_popup": "popup/popup.html"
   },
+  "icons": { "16": "images/favicon.ico" },
   "commands": {
     "_execute_action": {
       "suggested_key": {

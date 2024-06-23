@@ -1,8 +1,6 @@
 function set_rows_attrs() {
   // get the main table
   const main_grid = document.getElementsByClassName("main-grid")[0];
-  // get rows
-  // let rows = main_grid.getElementsByTagName("tr");
   // get all input fields
   const fields = main_grid.getElementsByClassName("form-control");
 
@@ -18,20 +16,31 @@ function set_rows_attrs() {
 }
 
 // add new row number cell
-function add_row_number(row, index) {
-  // make new td
-  const new_tag = document.createElement("td");
-  const node = document.createTextNode(`${index}`);
-  new_tag.appendChild(node);
-  // add td at first of tr
-  row.insertBefore(new_tag, row.firstChild);
-}
+// function add_row_number(row, index) {
+//   // make new td
+//   const new_tag = document.createElement("td");
+//   const node = document.createTextNode(`${index}`);
+//   new_tag.appendChild(node);
+//   // add td at first of tr
+//   row.insertBefore(new_tag, row.firstChild);
+// }
 
 // set event handlers to attributes
 function setAttrs(x) {
-  x.setAttribute("onFocus", "Income(this)");
-  x.setAttribute("onblur", "leave(this)");
-  x.setAttribute("onchange", "CalculateSum(this)");
+  // Add focus event listener
+  x.addEventListener("focus", () => {
+    Income(x);
+  });
+
+  // Add blur event listener
+  x.addEventListener("blur", () => {
+    leave(x);
+  });
+
+  // Add change event listener
+  x.addEventListener("change", () => {
+    CalculateSum(x);
+  });
 }
 
 // calculate sum of input values
@@ -51,6 +60,16 @@ function CalcSum(fields) {
 
 // scroll main table
 function ScrollTable(row) {
+  try {
+    // get the main table
+    const main_grid = document.getElementsByClassName("main-grid")[0];
+    // get rows
+    const rows = main_grid.getElementsByTagName("tr");
+  } catch (err) {
+    console.error(`failed to get rows list : ${err}`);
+    return;
+  }
+
   //scroll to the bottom of "table"
   const index = parseInt(row.firstChild.innerText);
   //   console.log(index, rows.length, main_table.scrollTop, main_table.scrollHeight)
@@ -86,7 +105,7 @@ function Income(td) {
 
 // unfocus event
 function leave(x) {
-  var p = x.parentElement.parentElement;
+  let p = x.parentElement.parentElement;
   p.setAttribute("aria-selected", "false");
   p.style.background = "white";
   p.style.color = "black";
@@ -97,7 +116,7 @@ function leave(x) {
 }
 
 function check_score_table_exists() {
-  let score_grid = document.querySelector('[ng-if="loadGrid"]');
+  const score_grid = document.querySelector('[ng-if="loadGrid"]');
   if (score_grid === null) {
     return false;
   }
