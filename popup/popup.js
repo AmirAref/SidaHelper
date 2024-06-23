@@ -7,6 +7,17 @@ async function getCurrentTab() {
   return await tab;
 }
 
+function showError(message) {
+  const errorMessageDiv = document.getElementById("error-message");
+  errorMessageDiv.textContent = `Error: ${message}`;
+  errorMessageDiv.style.display = "block";
+}
+
+function hideError() {
+  const errorMessageDiv = document.getElementById("error-message");
+  errorMessageDiv.style.display = "none";
+}
+
 async function run_helper() {
   const sida = "https://sida.medu.ir/#/scoreClassTeacher";
   const tab = await getCurrentTab();
@@ -19,6 +30,8 @@ async function run_helper() {
       files: ["../scripts/script.js"],
     });
     console.log("Script Injected!");
+  } else {
+    showError("Run the helper only on sida.medu.ir wesbite !");
   }
 }
 
